@@ -112,7 +112,7 @@ distrobox upgrade ankama-launcher
 
 The container will be rebuilt periodically to address any significant changes and prevent potentially breaking ones.
 
-To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, re-pull the container again to get the new version:  
+To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, pull the container image to get the new version:  
 *Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/Antiz96/ankama-launcher).*  
 *Substitute `docker` by `podman` if you use that.*
 
