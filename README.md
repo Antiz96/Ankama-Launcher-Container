@@ -31,29 +31,21 @@ If the Ankama launcher does not launch, you additionally need to install the X.o
 
 ### The container itself
 
-- Pull the container:
-
+Pull the container image and initialize it in distrobox:  
 *Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/Antiz96/ankama-launcher).*  
-*Substitute `docker` by `podman` if you use that.*
 
 ```bash
-docker pull ghcr.io/Antiz96/ankama-launcher:latest
-```
-
-- Integrate the container in distrobox:
-
-```bash
-distrobox create -r -n ankama-launcher -i ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
+distrobox create -r -n ankama-launcher -i ghcr.io/Antiz96/ankama-launcher:latest
 ```
 
 If you have a [Docker rootless](https://docs.docker.com/engine/security/rootless/) or a [Podman rootless](https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) setup and want to use it to integrate the container within `distrobox`, run the following command instead:  
 **Warning:** The container will only be accessible to the user you integrated it with and not system-wide.
 
 ```bash
-distrobox create -n ankama-launcher -i ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
+distrobox create -n ankama-launcher -i ghcr.io/Antiz96/ankama-launcher:latest
 ```
 
-### Host integration (optional)
+### Host integration
 
 To enhance the integration with the host machine, this repo contains a script as well as a ".desktop" file that allows you to launch the Ankama launcher within the container graphically like you would do with any other application (see the [Usage](#usage) chapter for more details).
 
@@ -92,19 +84,7 @@ sudo make uninstall
 
 ## Usage
 
-If you only installed the container itself, you can launch the Ankama launcher by running the following command:
-
-```bash
-xhost +si:localuser:"${USER}" &>/dev/null ; /usr/bin/distrobox-enter -r -n ankama-launcher -- /usr/local/bin/ankama-launcher
-```
-
-If you integrated it in distrobox in a rootless way, use the following command instead:
-
-```bash
-xhost +si:localuser:"${USER}" &>/dev/null ; /usr/bin/distrobox-enter -n ankama-launcher -- /usr/local/bin/ankama-launcher
-```
-
-If you installed the host integration, you can use the following command instead:
+Simply run the following command in order to run the container and launch the Ankama launcher:
 
 ```bash
 ankama-launcher-container
@@ -132,8 +112,7 @@ distrobox upgrade ankama-launcher
 
 The container will be rebuilt periodically to address any significant changes and prevent potentially breaking ones.
 
-To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, re-pull the container again to get the new version:
-
+To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, re-pull the container again to get the new version:  
 *Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/Antiz96/ankama-launcher).*  
 *Substitute `docker` by `podman` if you use that.*
 
@@ -153,6 +132,13 @@ If you integrated the container in a rootless way, use the following commands in
 ```bash
 distrobox rm -f ankama-launcher
 distrobox create -n ankama-launcher -i ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
+```
+
+To delete the old dangling image after the upgrade, run the following command:  
+*Substitute `docker` by `podman` if you use that.*
+
+```bash
+docker image prune -a
 ```
 
 ## Contributing
