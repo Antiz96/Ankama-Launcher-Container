@@ -20,10 +20,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PUSH_CONTAINER_TOKEN }}
 
+      - name: Get latest tag (and remove the "v" prefix from it)
+        run: echo "TAG=$(git describe --abbrev=0 --tags | sed "s/v//g")" >> $GITHUB_OUTPUT
+        id: version
+
       - name: Build container
-        run: docker build -t ${{ env.IMAGE_NAME}}:latest -t ${{ env.IMAGE_NAME}}:${{ GITHUB_REF }} .
+        run: docker build -t ${{ env.IMAGE_NAME}}:latest -t ${{ env.IMAGE_NAME}}:${{ steps.version.outputs.TAG }} .
 
       - name: Push container
         run: |
           docker push ${{ env.REGISTRY }}/${{ github.repository }}:latest
-          docker push ${{ env.REGISTRY }}/${{ github.repository }}:${{ GITHUB_REF }}
+          docker push ${{ env.REGISTRY }}/${{ github.repository }}:${{ steps.version.outputs.TAG }}
