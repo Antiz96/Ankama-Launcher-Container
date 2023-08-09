@@ -1,0 +1,29 @@
+name: CD
+on: release
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ankama-launcher
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.PUSH_CONTAINER_TOKEN }}
+
+      - name: Build container
+        run: docker build -t ${{ env.IMAGE_NAME}}:latest -t ${{ env.IMAGE_NAME}}:${{ GITHUB_REF }} .
+
+      - name: Push container
+        run: |
+          docker push ${{ env.REGISTRY }}/${{ github.repository }}:latest
+          docker push ${{ env.REGISTRY }}/${{ github.repository }}:${{ GITHUB_REF }}
