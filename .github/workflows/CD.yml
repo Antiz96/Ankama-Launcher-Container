@@ -1,5 +1,7 @@
 name: CD
-on: release
+on: 
+  release:
+    types: [published]
 
 env:
   REGISTRY: ghcr.io
