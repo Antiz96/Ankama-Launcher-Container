@@ -25,5 +25,5 @@ jobs:
 
       - name: Push container
         run: |
-	  docker push ${{ env.REGISTRY }}/${{ github.repository }}:latest
-	  docker push ${{ env.REGISTRY }}/${{ github.repository }}:${{ GITHUB_REF }}
+          docker push ${{ env.REGISTRY }}/${{ github.repository }}:latest
+          docker push ${{ env.REGISTRY }}/${{ github.repository }}:${{ GITHUB_REF }}
