@@ -1,0 +1,32 @@
+name: CI
+on: pull_request
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    container:
+      image: docker.io/library/alpine:latest
+      options: --privileged
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v3
+
+      - name: Update container
+        run: apk update && apk upgrade
+
+      - name: Install packages
+        run: apk add py3-pip ruby shellcheck docker && pip install codespell && gem install mdl
+
+      - name: Run codespell
+        run: codespell --enable-colors
+
+      - name: Run mdl
+        run: mdl --style .github/workflows/mdl_style.rb .
+
+      - name: Run shellcheck
+        run: find . -name '*.sh' -exec shellcheck --color=always {} +
+
+      - name: Run hadolint
+        run: docker run --rm -i hadolint/hadolint < Dockerfile
