@@ -3,7 +3,7 @@ on: release
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ankama-launcher
+  IMAGE_NAME: antiz96/ankama-launcher
 
 jobs:
   Build:
@@ -22,17 +22,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.PUSH_CONTAINER_TOKEN }}
 
-      - name: Get repo ID (and put it in lowercase)
-        run: echo "REPO=${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
-
       - name: Get latest tag (and remove the "v" prefix from it)
         run: echo "TAG=$(git describe --abbrev=0 --tags | sed "s/v//g")" >> $GITHUB_OUTPUT
         id: version
 
       - name: Build container
-        run: docker build -t ${{ env.IMAGE_NAME}}:latest -t ${{ env.IMAGE_NAME}}:${{ steps.version.outputs.TAG }} .
+        run: docker build -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest -t ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.TAG }} .
 
       - name: Push container
         run: |
-          docker push ${{ env.REGISTRY }}/${{ env.REPO }}:latest
-          docker push ${{ env.REGISTRY }}/${{ env.REPO }}:${{ steps.version.outputs.TAG }}
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.TAG }}
