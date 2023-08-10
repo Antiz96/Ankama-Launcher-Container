@@ -1,3 +1,7 @@
+# Basic info
+MAINTAINER Robin Candau <robincandau@protonmail.com>
+LABEL description="A container including every needed files, packages and dependencies to run the Ankama launcher and the related games (meant to be used with distrobox)."
+
 # Build the container from the latest Arch Linux base image
 FROM archlinux:base
 
