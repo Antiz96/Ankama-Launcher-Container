@@ -1,9 +1,9 @@
-# Basic info
-MAINTAINER Robin Candau <robincandau@protonmail.com>
-LABEL description="A container including every needed files, packages and dependencies to run the Ankama launcher and the related games (meant to be used with distrobox)."
-
-# Build the container from the latest Arch Linux base image
+# Build the container from the Arch Linux base image
 FROM archlinux:base
+
+# Basic info
+LABEL maintainer="Robin Candau <robincandau@protonmail.com>"
+LABEL description="A container including every needed files, packages and dependencies to run the Ankama launcher and the related games (meant to be used with distrobox)."
 
 # Enable the multilib repository
 RUN printf "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
