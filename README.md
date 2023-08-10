@@ -143,7 +143,7 @@ docker image prune -a
 
 ### Upgrade the host integration
 
-To upgrade the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the task listed in the [installation/host integration chapter](#host-integration).
+To upgrade the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the task listed in the [Installation/Host integration chapter](#host-integration).
 
 ## Contributing
 
