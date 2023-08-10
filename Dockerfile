@@ -8,7 +8,7 @@ LABEL description="A container including every needed files, packages and depend
 # Enable the multilib repository
 RUN printf "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
-# Update the container, install the necessary packages and remove pacman cache (to reduce the image size)
+# Update the container, install the necessary packages and remove the pacman cache (to reduce the image size)
 RUN pacman -Syy && pacman -Syu --noconfirm fuse nss at-spi2-core cups gtk3 alsa-utils lib32-libpulse wine && rm -rf /var/cache/pacman/pkg/*
 
 # Download the Ankama Launcher AppImage
