@@ -1,11 +1,15 @@
-# Build the container from the latest Arch Linux base image
+# Build the container from the Arch Linux base image
 FROM archlinux:base
+
+# Basic info
+LABEL maintainer="Robin Candau <robincandau@protonmail.com>"
+LABEL description="A container including every needed files, packages and dependencies to run the Ankama launcher and the related games (meant to be used with distrobox)."
 
 # Enable the multilib repository
 RUN printf "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
-# Update the container and install the necessary packages
-RUN pacman -Syy && pacman -Syu --noconfirm fuse nss at-spi2-core cups gtk3 alsa-utils lib32-libpulse wine
+# Update the container, install the necessary packages and remove the pacman cache (to reduce the image size)
+RUN pacman -Syy && pacman -Syu --noconfirm fuse nss at-spi2-core cups gtk3 alsa-utils lib32-libpulse wine && rm -f /var/cache/pacman/pkg/*
 
 # Download the Ankama Launcher AppImage
 ADD https://download.ankama.com/launcher/full/linux /opt/Ankama/Ankama-Launcher-x86_64.AppImage
