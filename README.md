@@ -124,14 +124,14 @@ Then delete the running container running in distrobox and recreate it against t
 
 ```bash
 distrobox rm -r -f ankama-launcher
-distrobox create -r -n ankama-launcher -i ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
+distrobox create -r -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
 ```
 
 If you integrated the container in a rootless way, use the following commands instead:
 
 ```bash
 distrobox rm -f ankama-launcher
-distrobox create -n ankama-launcher -i ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
+distrobox create -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
 ```
 
 To delete the old dangling image after the upgrade, run the following command:  
@@ -140,6 +140,10 @@ To delete the old dangling image after the upgrade, run the following command:
 ```bash
 docker image prune -a
 ```
+
+### Upgrade the host integration
+
+To upgrade the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the task listed in the [installation/host integration chapter](#host-integration).
 
 ## Contributing
 
