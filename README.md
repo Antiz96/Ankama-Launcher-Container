@@ -75,7 +75,7 @@ sudo make install-rootless
 - With SteamOS:
 
 ```bash
-steamos.sh install
+./steamos.sh install
 ```
 
 ## Uninstallation
@@ -111,7 +111,7 @@ sudo make uninstall
 - With SteamOS:
 
 ```bash
-steamos.sh uninstall
+./steamos.sh uninstall
 ```
 
 ## Usage
