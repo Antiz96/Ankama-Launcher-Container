@@ -13,6 +13,7 @@
 
 A container including every needed files, packages and dependencies to run the [Ankama launcher](https://www.ankama.com/en/launcher) and the related games (Dofus, Dofus-Retro, Wakfu).  
 It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), the container won't be able to launch the Ankama launcher with plain old Docker/Podman *as is*.
+Supports **SteamOS/SteamDeck** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md)).
 
 *"Why would I use this instead of simply running the AppImage directly on my system?"*  
 Here are a few reasons why one would want to:
@@ -27,19 +28,24 @@ Here are a few reasons why one would want to:
 ### Prerequisite
 
 Install [distrobox](https://github.com/89luca89/distrobox) as well as [docker](https://github.com/docker/cli) or [podman](https://github.com/containers/podman).  
-If the Ankama launcher does not launch, you additionally need to install the X.org [xhost](https://wiki.archlinux.org/title/Xhost) utility.
+If the Ankama launcher does not launch, you may additionally need to install the X.org [xhost](https://wiki.archlinux.org/title/Xhost) utility.
+
+SteamOS users have to install `distrobox` and `podman` in a rootless way, as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md).
 
 ### The container itself
 
 Pull the container image and initialize it in distrobox:  
 *Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*
 
+- With a regular setup:
+
 ```bash
 distrobox create -r -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest
 ```
 
-If you have a [Docker rootless](https://docs.docker.com/engine/security/rootless/) or a [Podman rootless](https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) setup and want to use it to integrate the container within `distrobox`, run the following command instead:  
-**Warning:** The container will only be accessible to the user you integrated it with and not system-wide.
+- With a rootless setup or SteamOS:
+
+*Requires a sudoless/rootless [docker](https://docs.docker.com/engine/security/rootless/) or [podman](https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) setup*
 
 ```bash
 distrobox create -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest
@@ -52,34 +58,60 @@ To enhance the integration with the host machine, this repo contains a script as
 To install them, download the archive of the [latest stable release](https://github.com/Antiz96/Ankama-Launcher-Container/releases/latest) and extract it *(alternatively, you can clone this repository via `git`)*.  
 Then go into the extracted/cloned directory and run the following command:
 
+- With a regular setup:
+
 ```bash
 sudo make install
 ```
 
-If you integrated the container in distrobox in a rootless way, run the following command instead:
+- With a rootless setup:
+
+**If you use SteamOS, use the next command instead**
 
 ```bash
 sudo make install-rootless
 ```
 
+- With SteamOS:
+
+```bash
+steamos.sh install
+```
+
 ## Uninstallation
 
-To delete the container permanently, run the following command:
+### The container itself
+
+To delete the container, run the following command:
+
+- With a regular setup:
 
 ```bash
 distrobox rm -r -f ankama-launcher
 ```
 
-If you integrated it in distrobox in a rootless way, run the following command instead:
+- With a rootless setup or SteamOS:
 
 ```bash
 distrobox rm -f ankama-launcher
 ```
 
+### Host integration
+
 To remove the host integration, go into the previously extracted/cloned directory and run the following command:
+
+- With a regular or a rootless setup:
+
+**If you use SteamOS, use the next command instead**
 
 ```bash
 sudo make uninstall
+```
+
+- With SteamOS:
+
+```bash
+steamos.sh uninstall
 ```
 
 ## Usage
@@ -94,54 +126,40 @@ Alternatively, you can run the `Ankama Launcher Container` application graphical
 
 ## Update
 
-### Keeping the running container up to date
-
-Since the container is based on [Arch Linux](https://archlinux.org), which is a rolling-release distribution, keeping the container up to date shouldn't be more than running the following command on a regular basis:
-
-```bash
-distrobox upgrade -r ankama-launcher
-```
-
-Or the following command if you integrated it in distrobox in a rootless way:
-
-```bash
-distrobox upgrade ankama-launcher
-```
-
 ### Upgrade the container
 
 The container will be rebuilt periodically to address any significant changes and prevent potentially breaking ones.
 
 To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, pull the container image to get the new version:  
-*Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*  
-*Substitute `docker` by `podman` if you use that.*
+*Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*
 
 ```bash
-docker pull ghcr.io/antiz96/ankama-launcher:latest
+docker pull ghcr.io/antiz96/ankama-launcher:latest || podman pull docker pull ghcr.io/antiz96/ankama-launcher:latest$
 ```
 
 Then delete the running container running in distrobox and recreate it against the new image:
+
+- With a regular setup:
 
 ```bash
 distrobox rm -r -f ankama-launcher
 distrobox create -r -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
 ```
 
-If you integrated the container in a rootless way, use the following commands instead:
+- With a rootless setup or SteamOS:
 
 ```bash
 distrobox rm -f ankama-launcher
 distrobox create -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
 ```
 
-To delete the old dangling image after the upgrade, run the following command:  
-*Substitute `docker` by `podman` if you use that.*
+To delete the old dangling image after the upgrade, run the following command:
 
 ```bash
-docker image prune -a
+docker image prune -a || podman image prune -a
 ```
 
-### Upgrade the host integration
+### Update the host integration
 
 To upgrade the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#host-integration).
 

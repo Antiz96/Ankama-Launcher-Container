@@ -2,7 +2,7 @@ pkgname=ankama-launcher-container
 
 PREFIX ?= /usr/local
 
-.PHONY: all install uninstall
+.PHONY: all install install-rootless uninstall
 
 all:
 
