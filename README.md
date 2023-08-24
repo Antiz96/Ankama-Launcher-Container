@@ -32,7 +32,7 @@ If the Ankama launcher does not launch, you may additionally need to install the
 
 SteamOS users have to install `distrobox` and `podman` in a rootless way, as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md).
 
-### The container itself
+### Install the container
 
 Pull the container image and initialize it in distrobox:  
 *Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*
@@ -45,13 +45,13 @@ distrobox create -r -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest
 
 - With a rootless setup or SteamOS:
 
-*Requires a sudoless/rootless [docker](https://docs.docker.com/engine/security/rootless/) or [podman](https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) setup*
+*Requires a sudoless/rootless [docker](https://docs.docker.com/engine/security/rootless/) or [podman](https://github.com/containers/podman/blob/main/docs/tutorials/rootless_tutorial.md) setup.*
 
 ```bash
 distrobox create -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest
 ```
 
-### Host integration
+### Install the host integration
 
 To enhance the integration with the host machine, this repo contains a script as well as a ".desktop" file that allows you to launch the Ankama launcher within the container graphically like you would do with any other application (see the [Usage](#usage) chapter for more details).
 
@@ -66,7 +66,7 @@ sudo make install
 
 - With a rootless setup:
 
-**If you use SteamOS, use the next command instead**
+**If you use SteamOS, use the next command instead.**
 
 ```bash
 sudo make install-rootless
@@ -80,7 +80,7 @@ steamos.sh install
 
 ## Uninstallation
 
-### The container itself
+### Uninstall the container
 
 To delete the container, run the following command:
 
@@ -96,13 +96,13 @@ distrobox rm -r -f ankama-launcher
 distrobox rm -f ankama-launcher
 ```
 
-### Host integration
+### Uninstall the host integration
 
 To remove the host integration, go into the previously extracted/cloned directory and run the following command:
 
 - With a regular or a rootless setup:
 
-**If you use SteamOS, use the next command instead**
+**If you use SteamOS, use the next command instead.**
 
 ```bash
 sudo make uninstall
@@ -164,8 +164,6 @@ docker image prune -a || podman image prune -a
 *Updating the host integration at each release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
 
 To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#host-integration).
-
-
 
 ## Contributing
 
