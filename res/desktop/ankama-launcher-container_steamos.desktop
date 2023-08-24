@@ -1,6 +1,5 @@
 [Desktop Entry]
 Type=Application
-Terminal=true
 Name=Ankama Launcher Container
 Icon=/home/deck/.local/share/icons/ankama-launcher-container/ankama-launcher-container.svg
 Exec=bash -c 'export PATH="$HOME/.local/bin:$HOME/.local/podman/bin:$PATH" && ankama-launcher-container'
