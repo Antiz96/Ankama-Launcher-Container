@@ -164,7 +164,7 @@ docker image prune -a || podman image prune -a
 
 *Updating the host integration at each new release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
 
-To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#install-host-integration).
+To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#install-the-host-integration).
 
 ## Contributing
 
