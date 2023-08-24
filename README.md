@@ -13,12 +13,13 @@
 
 A container including every needed files, packages and dependencies to run the [Ankama launcher](https://www.ankama.com/en/launcher) and the related games (Dofus, Dofus-Retro, Wakfu).  
 It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), the container won't be able to launch the Ankama launcher with plain old Docker/Podman *as is*.
+
 Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md)).
 
 *"Why would I use this instead of simply running the AppImage directly on my system?"*  
 Here are a few reasons why one would want to:
 
-- The AppImage itself isn't enough to run the Ankama launcher and the related games. Indeed, multiple packages and dependencies are required for the AppImage to execute as well as for the games to run properly (including [wine](https://www.winehq.org/) and its numerous *32-bit* libraries and dependencies). This container avoids the need to install those packages directly on your system by providing an "all in one" solution.
+- The AppImage itself isn't enough to run the Ankama launcher and the related games. Indeed, multiple packages and dependencies are required for the AppImage to execute as well as for the games to run properly (including [wine](https://www.winehq.org/) and its numerous *32-bit* libraries and dependencies). This container avoids the need to install those packages directly on your system by providing an "all in one" solution (useful to not clutter your system with those numerous additional packages or if you use an immutable distribution such as SteamOS).
 - This solution is distro agnostic, meaning you can install it the exact same way and it is guaranteed to work on any Linux distribution.
 - The container is based on the [Arch Linux Docker image](https://hub.docker.com/_/archlinux) which, by its bleeding edge/rolling release nature, provides the latest stable version of the necessary packages and the wine compatibility layer needed to run the games so you get the best compatibility and performance possible.
 - This solution provides a transparent host integration so that running the Ankama launcher via the AppImage within the container is no different then running any other application directly from your system.
@@ -161,7 +162,7 @@ docker image prune -a || podman image prune -a
 
 ### Update the host integration
 
-*Updating the host integration at each release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
+*Updating the host integration at each new release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
 
 To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#host-integration).
 
