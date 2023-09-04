@@ -135,7 +135,7 @@ To upgrade the container after a [new release](https://github.com/Antiz96/Ankama
 *Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*
 
 ```bash
-docker pull ghcr.io/antiz96/ankama-launcher:latest || podman pull docker pull ghcr.io/antiz96/ankama-launcher:latest$
+docker pull ghcr.io/antiz96/ankama-launcher:latest || podman pull docker pull ghcr.io/antiz96/ankama-launcher:latest
 ```
 
 Then delete the running container running in distrobox and recreate it against the new image:
