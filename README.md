@@ -14,7 +14,7 @@
 A container including every needed files, packages and dependencies to run the [Ankama launcher](https://www.ankama.com/en/launcher) and the related games (Dofus, Dofus-Retro, Wakfu).  
 It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), the container won't be able to launch the Ankama launcher with plain old Docker/Podman *as is*.
 
-Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md)).
+Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md)).
 
 *"Why would I use this instead of simply running the AppImage directly on my system?"*  
 Here are a few reasons why one would want to:
@@ -31,7 +31,7 @@ Here are a few reasons why one would want to:
 Install [distrobox](https://github.com/89luca89/distrobox) as well as [docker](https://github.com/docker/cli) or [podman](https://github.com/containers/podman).  
 If the Ankama launcher does not launch, you may additionally need to install the X.org [xhost](https://wiki.archlinux.org/title/Xhost) utility.
 
-SteamOS users have to install `distrobox` and `podman` in a rootless way, as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/install_rootless.md).
+SteamOS users have to install `distrobox` and `podman` in a rootless way, as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md).
 
 ### Install the container
 
