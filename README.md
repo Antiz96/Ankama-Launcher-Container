@@ -16,7 +16,7 @@ It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), 
 
 Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md)).
 
-*"Why would I use this instead of simply running the AppImage directly on my system?"*  
+*"Why would I use this instead of simply running the Ankama Launcher AppImage directly on my system?"*  
 Here are a few reasons why one would want to:
 
 - The AppImage itself isn't enough to run the Ankama launcher and the related games. Indeed, multiple packages and dependencies are required for the AppImage to execute as well as for the games to run properly (including [wine](https://www.winehq.org/) and its numerous *32-bit* libraries and dependencies). This container avoids the need to install those packages directly on your system by providing an "all in one" solution (useful to not clutter your system with those numerous additional packages or if you use an immutable distribution such as SteamOS).
