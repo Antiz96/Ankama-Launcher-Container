@@ -17,3 +17,5 @@ RUN chmod -R 777 /opt/Ankama/
 
 # Create a custom binary to launch the Ankama Launcher
 RUN mkdir -p /usr/local/bin && printf "#!/bin/bash\n\n/opt/Ankama/Ankama-Launcher-x86_64.AppImage" > /usr/local/bin/ankama-launcher && chmod 755 /usr/local/bin/ankama-launcher
+
+gfogjfodgjfdogfdojg
