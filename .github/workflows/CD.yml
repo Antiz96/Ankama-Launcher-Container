@@ -9,7 +9,9 @@ env:
 
 jobs:
   Build:
-    runs-on: ubuntu-latest
+    runs-on:
+      - self-hosted
+      - CI-CD
 
     steps:
       - name: Clone repo
