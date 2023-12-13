@@ -25,3 +25,6 @@ jobs:
 
       - name: Run hadolint
         run: docker run --rm -i hadolint/hadolint < Dockerfile 
+
+      - name: Cleanup docker images
+        run: docker image prune -af
