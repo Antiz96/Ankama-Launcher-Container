@@ -35,3 +35,6 @@ jobs:
         run: |
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
           docker push ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ steps.version.outputs.TAG }}
+
+      - name: Cleanup docker images
+        run: docker image prune -af
