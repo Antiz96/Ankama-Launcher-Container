@@ -24,7 +24,7 @@ jobs:
         run: find . -name '*.sh' -exec shellcheck --color=always {} +
 
       - name: Run hadolint
-        run: docker run --rm -i -v "${PWD}".github/workflows/hadolint.yaml:/.config/hadolint.yaml hadolint/hadolint < Dockerfile
+        run: docker run --rm -i -v "${PWD}"/.github/workflows/hadolint.yaml:/.config/hadolint.yaml hadolint/hadolint < Dockerfile
 
       - name: Cleanup docker images
         run: docker image prune -af
