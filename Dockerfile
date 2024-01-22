@@ -5,6 +5,9 @@ FROM archlinux:base-20240101.0.204074
 LABEL maintainer="Robin Candau <robincandau@protonmail.com>"
 LABEL description="A container including every needed files, packages and dependencies to run the Ankama launcher and the related games (meant to be used with distrobox)."
 
+# Set the shell for the following RUN commands
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # Enable the multilib repository
 RUN printf "\n[multilib]\nInclude = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 
