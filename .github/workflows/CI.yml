@@ -24,7 +24,7 @@ jobs:
         run: find . -name '*.sh' -exec shellcheck --color=always {} +
 
       - name: Run hadolint
-        run: docker run --rm -i hadolint/hadolint --ignore DL4006 < Dockerfile
+        run: docker run --rm -i hadolint/hadolint -v .github/workflows/hadolint.yaml:/.config/hadolint.yaml < Dockerfile
 
       - name: Cleanup docker images
         run: docker image prune -af
