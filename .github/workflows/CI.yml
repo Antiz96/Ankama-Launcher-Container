@@ -8,6 +8,9 @@ jobs:
       - CI-CD
 
     steps:
+      - name: Test
+        run: whoami
+
       - name: Clone repo
         uses: actions/checkout@v4
 
