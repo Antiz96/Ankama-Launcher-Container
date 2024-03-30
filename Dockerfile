@@ -1,5 +1,5 @@
 # Build the container from the Arch Linux base image
-FROM archlinux:base-20240101.0.204074
+FROM archlinux/archlinux:base-20240330.0.225642
 
 # Basic info
 LABEL maintainer="Robin Candau <robincandau@protonmail.com>"
