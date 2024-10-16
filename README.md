@@ -67,8 +67,6 @@ sudo make install
 
 - With a rootless setup:
 
-**If you use SteamOS, use the next command instead.**
-
 ```bash
 sudo make install-rootless
 ```
@@ -102,8 +100,6 @@ distrobox rm -f ankama-launcher
 To remove the host integration, go into the previously extracted/cloned directory and run the following command:
 
 - With a regular or a rootless setup:
-
-**If you use SteamOS, use the next command instead.**
 
 ```bash
 sudo make uninstall
