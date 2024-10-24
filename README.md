@@ -4,9 +4,9 @@
 
 - [Description](#description)
 - [Installation](#installation)
-- [Uninstallation](#uninstallation)
 - [Usage](#usage)
 - [Update](#update)
+- [Uninstallation](#uninstallation)
 - [Contributing](#contributing)
 
 ## Description
@@ -19,9 +19,10 @@ Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in 
 *"Why would I use this instead of simply running the Ankama Launcher AppImage directly on my system?"*  
 Here are a few reasons why one would want to:
 
-- The AppImage itself isn't enough to run the Ankama launcher and the related games. Indeed, multiple packages and dependencies are required for the AppImage to execute as well as for the games to run properly (including [wine](https://www.winehq.org/) and its numerous *32-bit* libraries and dependencies). This container avoids the need to install those packages directly on your system by providing an "all in one" solution (useful to not clutter your system with those numerous additional packages or if you use an immutable distribution such as SteamOS).
-- This solution is distro agnostic, meaning you can install it the exact same way and it is guaranteed to work on any Linux distribution.
-- The container is based on the [Arch Linux Docker image](https://hub.docker.com/_/archlinux) which, by its bleeding edge/rolling release nature, provides the latest stable version of the necessary packages and the wine compatibility layer needed to run the games so you get the best compatibility and performance possible.
+- AppImages hardly depend on `libfuse2`, which is a *severally* outdated version of `libfuse` you might not want to install on your system. Furthermore, AppImages hardly depend on `glibc`, which might not be installed / available on every distribution (e.g. Alpine Linux).
+- The Ankama Launcher AppImage itself isn't enough to run the Ankama launcher and the related games. Indeed, multiple packages and dependencies are required for the Ankama Launcher AppImage to execute as well as for the games to run properly (including [wine](https://www.winehq.org/) and its numerous *32-bit* libraries and dependencies). This container avoids the need to install those packages directly on your system by providing an "all in one" solution (useful to not clutter your system with those numerous additional packages or if you use an immutable distribution such as SteamOS).
+- This solution is distro agnostic, meaning you can install it the exact same way on any Linux distributions and it is guaranteed to work.
+- The container is based on the [Arch Linux Docker image](https://hub.docker.com/r/archlinux/archlinux) which, by its bleeding edge & rolling release nature, provides the latest stable version of packages including the wine compatibility layer needed to run the games. This ensure a great level of compatibility and performance.
 - This solution provides a transparent host integration so that running the Ankama launcher via the AppImage within the container is no different then running any other application directly from your system.
 
 ## Installation
@@ -29,7 +30,7 @@ Here are a few reasons why one would want to:
 ### Prerequisite
 
 Install [distrobox](https://github.com/89luca89/distrobox) as well as [docker](https://github.com/docker/cli) or [podman](https://github.com/containers/podman).  
-If the Ankama launcher does not launch, you may additionally need to install the X.org [xhost](https://wiki.archlinux.org/title/Xhost) utility.
+Users running Xorg / X11 additionally need to install the X.org [xhost](https://wiki.archlinux.org/title/Xhost) utility.
 
 SteamOS users have to install `distrobox` and `podman` in a rootless way, as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md).
 
@@ -77,6 +78,57 @@ sudo make install-rootless
 ./steamos.sh install
 ```
 
+## Usage
+
+Simply run the following command in order to run the container and launch the Ankama launcher:
+
+```bash
+ankama-launcher-container
+```
+
+Alternatively, you can run the `Ankama Launcher Container` application graphically via your application menu like you would do with any other application.
+
+## Update
+
+### Upgrade the container
+
+The container is rebuilt periodically to update the packages base and apply eventual security fix and / or significant changes.
+
+To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, pull the container image to get the new version:  
+*Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*
+
+```bash
+docker pull ghcr.io/antiz96/ankama-launcher:latest || podman pull ghcr.io/antiz96/ankama-launcher:latest
+```
+
+Then delete the running container running in distrobox and recreate it against the new image:
+
+- With a regular setup:
+
+```bash
+distrobox rm -r -f ankama-launcher
+distrobox create -r -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest
+```
+
+- With a rootless setup or SteamOS:
+
+```bash
+distrobox rm -f ankama-launcher
+distrobox create -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest
+```
+
+To delete the old dangling image after the upgrade, run the following command:
+
+```bash
+docker image prune -a || podman image prune -a
+```
+
+### Update the host integration
+
+*Updating the host integration at each new release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
+
+To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#install-the-host-integration).
+
 ## Uninstallation
 
 ### Uninstall the container
@@ -110,57 +162,6 @@ sudo make uninstall
 ```bash
 ./steamos.sh uninstall
 ```
-
-## Usage
-
-Simply run the following command in order to run the container and launch the Ankama launcher:
-
-```bash
-ankama-launcher-container
-```
-
-Alternatively, you can run the `Ankama Launcher Container` application graphically via your application finder like you would do with any other application/program.
-
-## Update
-
-### Upgrade the container
-
-The container will be rebuilt periodically to address any significant changes and prevent potentially breaking ones.
-
-To upgrade the container after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, pull the container image to get the new version:  
-*Example below with the `latest` tag, but you can use [any other tagged version if you prefer](https://ghcr.io/antiz96/ankama-launcher).*
-
-```bash
-docker pull ghcr.io/antiz96/ankama-launcher:latest || podman pull ghcr.io/antiz96/ankama-launcher:latest
-```
-
-Then delete the running container running in distrobox and recreate it against the new image:
-
-- With a regular setup:
-
-```bash
-distrobox rm -r -f ankama-launcher
-distrobox create -r -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
-```
-
-- With a rootless setup or SteamOS:
-
-```bash
-distrobox rm -f ankama-launcher
-distrobox create -n ankama-launcher -i ghcr.io/antiz96/ankama-launcher:latest #Replace the tag by the one you pulled if you didn't used "latest"
-```
-
-To delete the old dangling image after the upgrade, run the following command:
-
-```bash
-docker image prune -a || podman image prune -a
-```
-
-### Update the host integration
-
-*Updating the host integration at each new release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
-
-To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#install-the-host-integration).
 
 ## Contributing
 
