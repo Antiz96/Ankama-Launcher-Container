@@ -8,11 +8,12 @@
 - [Update](#update)
 - [Uninstallation](#uninstallation)
 - [Contributing](#contributing)
+- [License](#license)
 
 ## Description
 
 A container including every needed files, packages and dependencies to run the [Ankama launcher](https://www.ankama.com/en/launcher) and the related games (Dofus, Dofus-Retro, Wakfu).  
-It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), the container won't be able to launch the Ankama launcher with plain old Docker/Podman *as is*.
+It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), the container won't be able to launch the Ankama launcher with plain old Docker / Podman *as is*.
 
 Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md)).
 
@@ -165,5 +166,8 @@ sudo make uninstall
 
 ## Contributing
 
-You can raise your issues, feedbacks and suggestions in the [issues tab](https://github.com/Antiz96/Ankama-Launcher-Container/issues).  
-[Pull requests](https://github.com/Antiz96/Ankama-Launcher-Container/pulls) are welcomed as well!
+See the [contributing guidelines](https://github.com/Antiz96/Ankama-Launcher-Container/blob/main/CONTRIBUTING.md).
+
+## License
+
+The Ankama-Launcher-Container is licensed under the [GPL-3.0 license](https://github.com/Antiz96/Ankama-Launcher-Container/blob/main/LICENSE) (or any later version of that license).
