@@ -1,5 +1,7 @@
 [Desktop Entry]
-Type=Application
 Name=Ankama Launcher Container
+Comment=A distrobox container to run the Ankama launcher and games
 Icon=/home/deck/.local/share/icons/ankama-launcher-container/ankama-launcher-container.svg
-Exec=bash -c 'export PATH="$HOME/.local/bin:$HOME/.local/podman/bin:$PATH" && ankama-launcher-container'
+Type=Application
+Exec=bash -c 'PATH="$HOME/.local/bin:$HOME/.local/podman/bin:$PATH" && ankama-launcher-container'
+Categories=Game
