@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Ankama Launcher Container
 Comment=A distrobox container to run the Ankama launcher and games
-Icon=ankama-launcher-container.svg
+Icon=ankama-launcher-container
 Type=Application
 Terminal=true
 Exec=ankama-launcher-container
