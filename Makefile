@@ -20,6 +20,6 @@ install-rootless:
 
 uninstall:
 	rm -f "${DESTDIR}${PREFIX}/bin/${pkgname}"
-	rm -r "${DESTDIR}${PREFIX}/share/icons/hicolor/scalable/apps/${pkgname}.svg"
+	rm -f "${DESTDIR}${PREFIX}/share/icons/hicolor/scalable/apps/${pkgname}.svg"
 	rm -f "${DESTDIR}${PREFIX}/share/applications/${pkgname}.desktop"
 	rm -rf "${DESTDIR}${PREFIX}/share/doc/${pkgname}/"
