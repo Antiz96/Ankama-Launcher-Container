@@ -94,8 +94,9 @@ All notable changes to this project will be documented in this file.
 
 ## [v1.1.0](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.1.0) - 2023-08-24
 
-- Add support for the SteamDeck and SteamOS by @Antiz96 in https://github.com/Antiz96/Ankama-Launcher-Container/pull/16
-- Remove the `Terminal` statement for the rootless and SteamOS desktop files by @Antiz96 in https://github.com/Antiz96/Ankama-Launcher-Container/pull/18
+- Add support for the SteamDeck and SteamOS by @Antiz96 in <https://github.com/Antiz96/Ankama-Launcher-Container/pull/16>
+- Remove the `Terminal` statement for the rootless and SteamOS desktop files by @Antiz96 in <https://github.com/Antiz96/Ankama-Launcher-Container/pull/18>
+
 ## [v1.0.3](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.0.3) - 2023-08-21
 
 - Rebuild to include the new Ankama launcher version by @Antiz96 in #14
@@ -106,8 +107,8 @@ All notable changes to this project will be documented in this file.
 
 ## [v1.0.1](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.0.1) - 2023-08-10
 
-- Add basic info to the Dockerfile (Maintainer, Description) and remove the pacman cache during build by @Antiz96 in https://github.com/Antiz96/Ankama-Launcher-Container/pull/11
-- Correct the update/upgrade instructions in the README by @Antiz96 in https://github.com/Antiz96/Ankama-Launcher-Container/pull/12
+- Add basic info to the Dockerfile (Maintainer, Description) and remove the pacman cache during build by @Antiz96 in <https://github.com/Antiz96/Ankama-Launcher-Container/pull/11>
+- Correct the update/upgrade instructions in the README by @Antiz96 in <https://github.com/Antiz96/Ankama-Launcher-Container/pull/12>
 
 ## [v1.0.0](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.0.0) - 2023-08-10
 
