@@ -1,5 +1,7 @@
 [Desktop Entry]
-Type=Application
 Name=Ankama Launcher Container
-Icon=/usr/share/icons/ankama-launcher-container/ankama-launcher-container.svg
+Comment=A distrobox container to run the Ankama launcher and games
+Icon=ankama-launcher-container.svg
+Type=Application
 Exec=ankama-launcher-container
+Categories=Game
