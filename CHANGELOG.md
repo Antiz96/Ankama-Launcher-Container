@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.3.5](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.3.5) - 2025-01-22
+
+### Features
+
+- Update base image to base-20250122.0.300297 ([#71](https://github.com/Antiz96/Ankama-Launcher-Container/pull/71)) - ([f496f72](https://github.com/Antiz96/Ankama-Launcher-Container/commit/f496f72b716a2dbc144324bab61a9d184f6017f0)) by @Antiz96
+
+### Miscellaneous
+
+- Update script paths ([#70](https://github.com/Antiz96/Ankama-Launcher-Container/pull/70)) - ([761b636](https://github.com/Antiz96/Ankama-Launcher-Container/commit/761b636222d69eef34b3787ad943b3fcddfa57cc)) by @Antiz96
+- Add Release instructions + Changelog ([#69](https://github.com/Antiz96/Ankama-Launcher-Container/pull/69)) - ([a32371f](https://github.com/Antiz96/Ankama-Launcher-Container/commit/a32371fa9e5758eafadfaa9d3db64bb2602f0ad2)) by @Antiz96
+- Add CONTRIBUTING.md ([#68](https://github.com/Antiz96/Ankama-Launcher-Container/pull/68)) - ([8232652](https://github.com/Antiz96/Ankama-Launcher-Container/commit/82326526debfd83d5abb18f0924f3fb0c4589233)) by @Antiz96
+- Add issues / pull requests templates ([#67](https://github.com/Antiz96/Ankama-Launcher-Container/pull/67)) - ([141b553](https://github.com/Antiz96/Ankama-Launcher-Container/commit/141b5530a85b162d2852da65b1b0013a0dc8ea30)) by @Antiz96
+
 ## [v1.3.4](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.3.4) - 2025-01-18
 
 - Update base image to base-20250118.0.299213 by @Antiz96 in #66
