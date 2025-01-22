@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.4.1](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.4.1) - 2025-01-22
+
+### Fixes
+
+- Fix typo in Makefile ([#73](https://github.com/Antiz96/Ankama-Launcher-Container/pull/73)) - ([e419af0](https://github.com/Antiz96/Ankama-Launcher-Container/commit/e419af0e9bd99b3f93375af9377f0b6d8ac20c2a)) by @Antiz96
+
+### Miscellaneous
+
+- Update CI ([#74](https://github.com/Antiz96/Ankama-Launcher-Container/pull/74)) - ([b067406](https://github.com/Antiz96/Ankama-Launcher-Container/commit/b067406e5e7ddc9c6751c3096cfbc6dc8b32436f)) by @Antiz96
+
 ## [v1.4.0](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.4.0) - 2025-01-22
 
 ### Features
