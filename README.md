@@ -15,7 +15,7 @@
 A container including every needed files, packages and dependencies to run the [Ankama launcher](https://www.ankama.com/en/launcher) and the related games (Dofus, Dofus-Retro, Wakfu).  
 It is meant to be used with [distrobox](https://github.com/89luca89/distrobox), the container won't be able to launch the Ankama launcher with plain old Docker / Podman *as is*.
 
-Supports **SteamDeck/SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md)).
+Supports **SteamDeck / SteamOS** (given you installed `distrobox` and `podman` in a rootless way as described [here](https://github.com/89luca89/distrobox/blob/main/docs/posts/steamdeck_guide.md)).
 
 *"Why would I use this instead of simply running the Ankama Launcher AppImage directly on my system?"*  
 Here are a few reasons why one would want to:
@@ -81,13 +81,13 @@ sudo make install-rootless
 
 ## Usage
 
-Simply run the following command in order to run the container and launch the Ankama launcher:
+Simply launch the `Ankama Launcher Container` application graphically via your application menu.
+
+Alternatively, you can run the following command:
 
 ```bash
 ankama-launcher-container
 ```
-
-Alternatively, you can run the `Ankama Launcher Container` application graphically via your application menu like you would do with any other application.
 
 ## Update
 
@@ -128,7 +128,7 @@ docker image prune -a || podman image prune -a
 
 *Updating the host integration at each new release isn't generally necessary. If significant changes are made to the related files which would require an update, it will be noted in the release's notes.*
 
-To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation/Host integration chapter](#install-the-host-integration).
+To update the host integration after a [new release](https://github.com/Antiz96/Ankama-Launcher-Container/releases) has been made, repeat the tasks listed in the [Installation / Host integration chapter](#install-the-host-integration).
 
 ## Uninstallation
 
