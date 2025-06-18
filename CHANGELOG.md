@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [v1.5.0](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.5.0) - 2025-06-18
+
+### Features
+
+- *(container)* Update image to base-20250617.0.367521 ([#78](https://github.com/Antiz96/Ankama-Launcher-Container/pull/78)) - ([8ee6a0e](https://github.com/Antiz96/Ankama-Launcher-Container/commit/8ee6a0e2b54b83aea68955e96a16cb24953af55e)) by @Antiz96
+- *(container)* Drop the multilib repository ([#77](https://github.com/Antiz96/Ankama-Launcher-Container/pull/77)) - ([340ab6d](https://github.com/Antiz96/Ankama-Launcher-Container/commit/340ab6d48bb6c4a27aaba3f9deb0a619ab65abc1)) by @Antiz96
+
 ## [v1.4.2](https://github.com/Antiz96/Ankama-Launcher-Container/releases/tag/v1.4.2) - 2025-03-23
 
 ### Features
