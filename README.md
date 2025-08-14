@@ -5,7 +5,7 @@
 ## Unmaintained project
 
 **This project is now unmaintained.**  
-I haven't been playing any Ankama games for a while now. I'm therefore not using this project myself anymore, so I'd rather drop it as I don't have the time continue maintaining it.
+I haven't been playing any Ankama games for a while now. I'm therefore not using this project myself anymore, so I'd rather drop it as I don't have the time to keep maintaining it.
 
 ---
 
